@@ -11,4 +11,4 @@ jobs:
     runs-on: windows-latest
     steps:
       - run: echo $Env:Path
-      - run: cd 'C:\Program Files (x86)\Microsoft SDKs\Windows Kits\10' ; dir
+      - run: Get-ChildItem -Path 'C:\Program Files (x86)\Microsoft SDKs\Windows Kits\10' -Include signtool.exe -Recurse
