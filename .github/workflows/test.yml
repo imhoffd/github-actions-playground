@@ -1,0 +1,13 @@
+name: Test Workflow
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  test:
+    name: Test Job
+    runs-on: windows-latest
+    steps:
+      - run: echo %PATH%
