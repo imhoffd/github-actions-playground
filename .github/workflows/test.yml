@@ -10,6 +10,6 @@ jobs:
     name: Test Job
     runs-on: windows-latest
     steps:
-      - run: Get-Item Env:Path
+      - run: echo $Env:Path
       - run: dir
         working-directory: C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise
