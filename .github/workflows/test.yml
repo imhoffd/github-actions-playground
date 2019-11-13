@@ -11,5 +11,4 @@ jobs:
     runs-on: windows-latest
     steps:
       - run: echo $Env:Path
-      - run: cd 'C:\Program Files' ; tree
-      - run: cd 'C:\Program Files (x86)' ; tree
+      - run: cd 'C:\Program Files (x86)\Microsoft Visual Studio' ; tree
