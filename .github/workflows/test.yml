@@ -10,4 +10,4 @@ jobs:
     name: Test Job
     runs-on: windows-latest
     steps:
-      - run: echo %PATH%
+      - run: Get-Item Env:Path
