@@ -11,5 +11,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - run: echo $Env:Path
-      - run: choco install windows-sdk-10.0
-      - run: cd 'C:\Program Files (x86)\Windows Kits' ; tree
+      # - run: choco install windows-sdk-10.0
+      - run: cd 'C:\Program Files (x86)\Microsoft SDKs' ; tree
+      - run: cd 'C:\Program Files\Microsoft SDKs' ; tree
