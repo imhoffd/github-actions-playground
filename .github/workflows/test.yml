@@ -11,5 +11,4 @@ jobs:
     runs-on: windows-latest
     steps:
       - run: echo $Env:Path
-      - run: dir
-        working-directory: 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise'
+      - run: cd 'C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise' ; dir
