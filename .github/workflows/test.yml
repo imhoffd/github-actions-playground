@@ -8,8 +8,6 @@ on:
 jobs:
   test:
     name: Test Job
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-      - run: echo $Env:Path
-      - run: Get-ChildItem -Path 'C:\Program Files (x86)' -Include signtool.exe -Recurse
-      - run: Get-ChildItem -Path 'C:\Program Files' -Include signtool.exe -Recurse
+      - run: env
