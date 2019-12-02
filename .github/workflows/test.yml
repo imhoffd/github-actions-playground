@@ -12,13 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Make changes
-        run: echo hello2 > hello.txt
+        run: echo hello3 > hello.txt
       - name: Commit changes
         run: |
           git config --local user.name "Daniel Imhoff"
           git config --local user.email "dwieeb@gmail.com"
           git add .
           git commit -m "Do the thing!"
-      - uses: dwieeb/git-push@releases/v1
+      - uses: dwieeb/git-push@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
