@@ -10,4 +10,4 @@ jobs:
     name: Test Job
     runs-on: ubuntu-latest
     steps:
-      - run: env
+      - run: git config --list
