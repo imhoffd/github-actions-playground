@@ -11,10 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: git config --local user.email "action@github.com"
-      - run: git config --local user.name "GitHub Action"
-      - run: git config --list
-      - run: echo hello > hello.txt
-      - run: git add hello.txt
-      - run: git commit -m "hello"
-      - run: git push
+      - uses: dwieeb/push@master
