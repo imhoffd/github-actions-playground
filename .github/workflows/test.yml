@@ -12,3 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: dwieeb/push@releases/v1
+        with:
+          name: GitHub Action
+          email: action@github.com
