@@ -11,6 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Make changes
+        run: echo hello > hello.txt
+      - name: Commit changes
+        run: |
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git add .
+          git commit -m "Do the thing!"
       - uses: dwieeb/git-push@releases/v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
