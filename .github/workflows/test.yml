@@ -10,6 +10,7 @@ jobs:
     name: Test Job
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - run: git config --list
       - run: echo hello > hello.txt
       - run: git add hello.txt
