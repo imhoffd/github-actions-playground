@@ -11,3 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: git config --list
+      - run: echo hello > hello.txt
+      - run: git add hello.txt
+      - run: git commit -m "hello"
+      - run: git push
