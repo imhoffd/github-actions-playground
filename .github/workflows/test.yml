@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Make changes
-        run: echo hello > hello.txt
+        run: echo hello2 > hello.txt
       - name: Commit changes
         run: |
           git config --local user.name "Daniel Imhoff"
