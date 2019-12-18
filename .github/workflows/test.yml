@@ -8,17 +8,7 @@ on:
 jobs:
   test:
     name: Test Job
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Make changes
-        run: echo hello3 > hello.txt
-      - name: Commit changes
-        run: |
-          git config --local user.name "Daniel Imhoff"
-          git config --local user.email "dwieeb@gmail.com"
-          git add .
-          git commit -m "Do the thing!"
-      - uses: dwieeb/git-push@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - run: Get-ChildItem -Path 'C:\Program Files (x86)' -Include MSBuild.exe -Recurse
