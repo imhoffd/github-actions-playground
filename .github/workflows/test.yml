@@ -11,4 +11,4 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
-      - run: Get-ChildItem -Path 'C:\Program Files (x86)' -Include MSBuild.exe -Recurse
+      - run: Get-ChildItem -Path 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise' -Include MSBuild.exe -Recurse
