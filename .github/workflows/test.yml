@@ -10,5 +10,6 @@ jobs:
     name: Test Job
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v1
-      - run: Get-ChildItem -Path 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise' -Include MSBuild.exe -Recurse
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
