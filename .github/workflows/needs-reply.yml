@@ -1,0 +1,14 @@
+name: Needs Reply
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Needs Reply
+        uses: dwieeb/needs-reply@master
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
