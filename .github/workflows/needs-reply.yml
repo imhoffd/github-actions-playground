@@ -12,3 +12,4 @@ jobs:
         uses: dwieeb/needs-reply@master
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-close: 1
