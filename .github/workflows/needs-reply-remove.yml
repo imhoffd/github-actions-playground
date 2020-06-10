@@ -20,6 +20,3 @@ jobs:
           label: needs-reply
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: echo "${{ steps.remove_needs_reply.outputs.status }}"
-      - run: echo "Issue does not have label."
-        if: ${{ steps.remove_needs_reply.outputs.status == 404 }}
