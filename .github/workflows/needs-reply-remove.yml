@@ -1,0 +1,20 @@
+name: Remove Needs Reply
+
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove Needs Reply
+        uses: octokit/request-action@v2.x
+        with:
+          route: DELETE /repos/:repository/issues/:issue/labels/:label
+          repository: ${{ github.repository }}
+          issue: ${{ github.event.issue.number }}
+          label: needs-reply
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
