@@ -12,6 +12,7 @@ jobs:
       - name: Remove Needs Reply
         id: remove_needs_reply
         uses: octokit/request-action@v2.x
+        continue-on-error: true
         with:
           route: DELETE /repos/:repository/issues/:issue/labels/:label
           repository: ${{ github.repository }}
