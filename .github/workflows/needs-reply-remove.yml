@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Remove Needs Reply
+        id: remove_needs_reply
         uses: octokit/request-action@v2.x
         with:
           route: DELETE /repos/:repository/issues/:issue/labels/:label
@@ -18,3 +19,4 @@ jobs:
           label: needs-reply
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo ${{ steps.remove_needs_reply.outputs }}
