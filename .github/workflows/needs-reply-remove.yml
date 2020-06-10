@@ -19,4 +19,4 @@ jobs:
           label: needs-reply
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: echo ${{ steps.remove_needs_reply.outputs }}
+      - run: echo ${{ fromJson(steps.remove_needs_reply.outputs) }}
