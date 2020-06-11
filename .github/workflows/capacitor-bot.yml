@@ -8,7 +8,7 @@ on:
 
 jobs:
   bot:
-    name: ${{ github.event_name }} » ${{ github.event.action }}
+    name: ${{ github.event_name }}/${{ github.event.action }}
     runs-on: ubuntu-latest
     steps:
       - uses: ionic-team/capacitor-bot@master
