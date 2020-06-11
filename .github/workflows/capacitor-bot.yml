@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: ionic-team/capacitor-bot@master
         with:
-          - repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
