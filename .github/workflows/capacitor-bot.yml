@@ -1,0 +1,15 @@
+name: Capacitor Bot
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ionic-team/capacitor-bot@master
+        with:
+          - repo-token: ${{ secrets.GITHUB_TOKEN }}
