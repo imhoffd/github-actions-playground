@@ -7,8 +7,8 @@ on:
       - edited
 
 jobs:
-  name: ${{ github.event_name }}
   bot:
+    name: ${{ github.event_name }}
     runs-on: ubuntu-latest
     steps:
       - uses: ionic-team/capacitor-bot@master
