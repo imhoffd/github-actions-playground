@@ -1,14 +1,14 @@
 name: Capacitor Bot
 
 on:
-  issues:
-    types:
-      - opened
-      - edited
-  issue_comment:
-    types:
-      - created
-
+  - push
+  - issues:
+      types:
+        - opened
+        - edited
+  - issue_comment:
+      types:
+        - created
 
 jobs:
   bot:
