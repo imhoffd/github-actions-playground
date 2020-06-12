@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ionic-team/capacitor-bot@push
+      - uses: ionic-team/capacitor-bot@fc76eac
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
         env:
