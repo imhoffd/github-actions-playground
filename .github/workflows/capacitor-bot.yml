@@ -19,3 +19,8 @@ jobs:
       - uses: ionic-team/capacitor-bot@push
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GIT_AUTHOR_NAME: The Github
+          GIT_AUTHOR_EMAIL: the@github.com
+          GIT_COMMITTER_NAME: The Github
+          GIT_COMMITTER_EMAIL: the@github.com
