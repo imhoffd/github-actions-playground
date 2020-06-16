@@ -2,7 +2,7 @@
   "files": [
     "README.md"
   ],
-  "imageSize": 100,
+  "imageSize": 50,
   "commit": false,
   "contributors": [
     {
@@ -15,7 +15,7 @@
       ]
     }
   ],
-  "contributorsPerLine": 7,
+  "contributorsPerLine": 14,
   "projectName": "github-actions-playground",
   "projectOwner": "dwieeb",
   "repoType": "github",
