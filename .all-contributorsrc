@@ -1,4 +1,23 @@
 {
   "imageSize": 50,
-  "contributorsPerLine": 14
+  "contributorsPerLine": 14,
+  "projectName": "github-actions-playground",
+  "projectOwner": "dwieeb",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true,
+  "contributors": [
+    {
+      "login": "dwieeb",
+      "name": "Dan Imhoff",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/236501?v=4",
+      "profile": "https://github.com/dwieeb",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "files": [
+    "README.md"
+  ]
 }
