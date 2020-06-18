@@ -1,2 +1,12 @@
 tasks:
-  foo: bar
+  - name: remove-label
+    event: issue_comment/created
+    config:
+      label: needs-reply
+      exclude-labeler: true
+  - name: add-platform-labels
+    event: issues/opened
+  - name: add-contributors
+    event: push
+    config:
+      base: master

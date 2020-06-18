@@ -1,6 +1,7 @@
 name: Capacitor Bot
 
 on:
+  push:
   issues:
     types:
       - opened
@@ -14,7 +15,7 @@ jobs:
     name: ${{ github.event_name }}/${{ github.event.action }}
     runs-on: ubuntu-latest
     steps:
-      - uses: ionic-team/bot@913a236
+      - uses: ionic-team/bot@6056340
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
         env:
