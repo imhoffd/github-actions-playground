@@ -14,7 +14,7 @@ jobs:
     name: ${{ github.event_name }}/${{ github.event.action }}
     runs-on: ubuntu-latest
     steps:
-      - uses: ionic-team/bot@e4ae225
+      - uses: ionic-team/bot@9279755
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
         env:
