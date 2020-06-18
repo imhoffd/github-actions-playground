@@ -3,7 +3,7 @@ tasks:
     event: issue_comment/created
     config:
       label: needs-reply
-      exclude-labeler: true
+      exclude-labeler: false
   - name: add-platform-labels
     event: issues/opened
   - name: add-contributors
