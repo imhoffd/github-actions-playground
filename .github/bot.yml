@@ -1,12 +1,16 @@
 tasks:
   - name: remove-label
-    event: issue_comment/created
+    on:
+      issue_comment:
+        types: [created]
     config:
       label: needs-reply
-      exclude-labeler: false
+      exclude-labeler: true
   - name: add-platform-labels
-    event: issues/opened
+    on:
+      issues:
+        types: [opened, edited]
   - name: add-contributors
-    event: push
+    on: push
     config:
       base: master
