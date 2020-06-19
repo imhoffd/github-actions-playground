@@ -9,12 +9,8 @@ jobs:
     name: Add comment when issue is labeled
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
       - uses: octokit/request-action@v2.x
-        if: ${{ github.event.label == 'bug' }}
+        if: ${{ github.event.label.name == 'bug' }}
         continue-on-error: true
         with:
           route: POST /repos/:repository/issues/:issue_number/comments
