@@ -9,6 +9,7 @@ jobs:
     name: Add comment when issue is labeled
     runs-on: ubuntu-latest
     steps:
+      - run: echo ${{ github.event }}
       - uses: octokit/request-action@v2.x
         if: ${{ github.event.label == 'bug' }}
         continue-on-error: true
