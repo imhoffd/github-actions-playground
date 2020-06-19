@@ -1,4 +1,4 @@
-name: Add Comment when Issue is Labeled
+name: Add comment when issue is labeled
 
 on:
   issues:
@@ -6,9 +6,11 @@ on:
 
 jobs:
   do:
+    name: Add comment when issue is labeled
     runs-on: ubuntu-latest
     steps:
       - uses: octokit/request-action@v2.x
+        if: ${{ github.event.label == 'bug' }}
         continue-on-error: true
         with:
           route: POST /repos/:repository/issues/:issue_number/comments
