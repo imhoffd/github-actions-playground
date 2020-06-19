@@ -9,7 +9,10 @@ jobs:
     name: Add comment when issue is labeled
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ toJson(github.event) }}"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - uses: octokit/request-action@v2.x
         if: ${{ github.event.label == 'bug' }}
         continue-on-error: true
