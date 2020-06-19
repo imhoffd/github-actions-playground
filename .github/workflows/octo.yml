@@ -5,18 +5,28 @@ on:
     types: [labeled]
 
 jobs:
-  do:
-    name: Add comment when issue is labeled
+  bot:
+    if: ${{ github.event.label.name == 'bug' }}
     runs-on: ubuntu-latest
+    continue-on-error: true
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: octokit/request-action@v2.x
-        if: ${{ github.event.label.name == 'bug' }}
-        continue-on-error: true
         with:
           route: POST /repos/:repository/issues/:issue_number/comments
           repository: ${{ github.repository }}
           issue_number: ${{ github.event.issue.number }}
           body: |
             Hello World!
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: octokit/request-action@v2.x
+        with:
+          route: PATCH /repos/:repository/issues/:issue_number
+          repository: ${{ github.repository }}
+          issue_number: ${{ github.event.issue.number }}
+          state: 'closed'
+      - uses: octokit/request-action@v2.x
+        with:
+          route: PUT /repos/:repository/issues/:issue_number/lock
+          repository: ${{ github.repository }}
+          issue_number: ${{ github.event.issue.number }}
