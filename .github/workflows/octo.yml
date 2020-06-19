@@ -13,7 +13,7 @@ jobs:
         with:
           route: POST /repos/:repository/issues/:issue_number/comments
           repository: ${{ github.repository }}
-          issue: ${{ github.event.issue.number }}
+          issue_number: ${{ github.event.issue.number }}
           body: |
             Hello World!
         env:
