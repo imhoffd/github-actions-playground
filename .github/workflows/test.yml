@@ -1,0 +1,10 @@
+name: Blah
+
+on: push
+
+jobs:
+  bot:
+    runs-on: macos-latest
+    steps:
+      - run: pwd
+      - run: ls -al /
