@@ -11,11 +11,6 @@ jobs:
         xcode:
           - /Applications/Xcode_11.6_beta.app
           - /Applications/Xcode_11.5.app
-    defaults:
-      run:
-        working-directory: ./dir
     steps:
-      - run: pwd
-      - run: sudo ls -al /Applications
       - run: sudo xcode-select --switch ${{ matrix.xcode }}
-      - uses: actions/checkout@v2
+      - run: xcodebuild -version
