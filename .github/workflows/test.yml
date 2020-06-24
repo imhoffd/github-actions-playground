@@ -12,5 +12,6 @@ jobs:
           - /Applications/Xcode_11.5.app
     steps:
       - run: pwd
-      - run: ls -al /Applications
+      - run: sudo ls -al /Applications
       - run: sudo xcode-select --switch ${{ matrix.xcode }}
+      - uses: actions/checkout@v2
