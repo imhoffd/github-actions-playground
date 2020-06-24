@@ -7,4 +7,4 @@ jobs:
     runs-on: macos-latest
     steps:
       - run: pwd
-      - run: ls -al /
+      - run: ls -al /Applications
