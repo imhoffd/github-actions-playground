@@ -5,11 +5,15 @@ on: push
 jobs:
   bot:
     runs-on: macos-latest
+    timeout-minutes: 30
     strategy:
       matrix:
         xcode:
           - /Applications/Xcode_11.6_beta.app
           - /Applications/Xcode_11.5.app
+    defaults:
+      run:
+        working-directory: ./dir
     steps:
       - run: pwd
       - run: sudo ls -al /Applications
