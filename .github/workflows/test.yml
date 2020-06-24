@@ -5,7 +5,12 @@ on: push
 jobs:
   bot:
     runs-on: macos-latest
+    strategy:
+      matrix:
+        xcode:
+          - /Applications/Xcode_11.6_beta.app
+          - /Applications/Xcode_11.5.app
     steps:
       - run: pwd
       - run: ls -al /Applications
-      - run: sudo xcode-select --switch /Applications/Xcode_11.6_beta.app
+      - run: sudo xcode-select --switch ${{ matrix.xcode }}
