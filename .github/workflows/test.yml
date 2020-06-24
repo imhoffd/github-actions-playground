@@ -8,4 +8,4 @@ jobs:
     steps:
       - run: pwd
       - run: ls -al /Applications
-      - run: xcode-select --select /Applications/Xcode_11.6_beta.app
+      - run: xcode-select --switch /Applications/Xcode_11.6_beta.app
