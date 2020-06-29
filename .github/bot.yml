@@ -3,6 +3,8 @@ tasks:
     on:
       issue_comment:
         types: [created]
+      issues:
+        types: [opened, edited]
     config:
       label: needs-reply
       exclude-labeler: true
