@@ -14,4 +14,4 @@ tasks:
     on: push
     config:
       base: master
-      commitMsg: chore(readme): add new contributor
+      commitMsg: 'chore(readme): add new contributor'
