@@ -23,17 +23,20 @@ tasks:
     config:
       base: master
       commitMsg: 'chore(readme): add new contributor'
-  - name: comment-on-label
+  - name: add-comment
+    on:
+      issues:
+        types: [opened]
+    config:
+      comment: 'hello world'
+  - name: add-comment-for-label
     on:
       issues:
         types: [labeled]
       pull_request:
         types: [labeled]
     config:
-      labels:
-        - name: needs-reply
-          comment: 'can you reply pls'
-        - name: invalid
-          comment: 'this is bad'
-          close: true
-          lock: true
+      name: invalid
+      comment: 'this is bad'
+      close: true
+      lock: true
