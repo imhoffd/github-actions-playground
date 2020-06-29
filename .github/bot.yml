@@ -1,4 +1,10 @@
 tasks:
+  - name: add-label
+    on:
+      issues:
+        types: [opened]
+    config:
+      label: triage
   - name: remove-label
     on:
       issue_comment:
