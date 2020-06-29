@@ -17,3 +17,12 @@ tasks:
     config:
       base: master
       commitMsg: 'chore(readme): add new contributor'
+  - name: comment-on-label
+    on:
+      issues:
+        types: [labeled]
+      pull_request:
+        types: [labeled]
+    config:
+      base: master
+      commitMsg: 'chore(readme): add new contributor'

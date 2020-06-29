@@ -3,7 +3,9 @@ name: Capacitor Bot
 on:
   push:
   issues:
-    types: [opened, edited]
+    types: [opened, edited, labeled]
+  pull_request:
+    types: [labeled]
   issue_comment:
     types: [created]
 
