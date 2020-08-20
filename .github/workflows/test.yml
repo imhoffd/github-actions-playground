@@ -9,6 +9,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo "::set-output name=plugins::$(jq -cM .packages asdf.json)"
+  echo:
+    needs: set-matrix
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - run: echo ${{ needs['set-matrix'].outputs }}
   build:
     needs: set-matrix
     runs-on: ubuntu-latest
