@@ -3,15 +3,25 @@ name: Blah
 on: push
 
 jobs:
-  job1:
+  set-matrix:
     runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    timeout-minutes: 30
     steps:
-    - id: set-matrix
-      run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
-  job2:
-    needs: job1
+      - uses: actions/checkout@v2
+      - run: echo "::set-output name=plugins::$(jq -cM .packages asdf.json)"
+  echo:
+    needs: set-matrix
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
-    - run: echo ${{toJson(fromJson(needs.job1.outputs.matrix))}}
+      - run: echo ${{ needs['set-matrix'].outputs.plugins }}
+  build:
+    needs: set-matrix
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      matrix:
+        plugin: ${{ fromJson(needs['set-matrix'].outputs.plugins) }}
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo ${{ matrix.plugin }}
