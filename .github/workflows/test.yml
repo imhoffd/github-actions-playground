@@ -3,9 +3,12 @@ name: Blah
 on: push
 
 jobs:
-  job1:
+  set-matrix:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    outputs:
+      FOO: ${{ steps.step_one.outputs.FOO }}
+      plugins: ${{ steps['set-plugins'].outputs.plugins }}
     steps:
       - uses: actions/checkout@v2
       - name: Set the value
@@ -14,9 +17,10 @@ jobs:
       - name: Use it
         run: echo ${{ steps.step_one.outputs.FOO }}
       - run: echo "::set-output name=test::testing"
-      - run: echo "::set-output name=plugins::$(jq -cM .packages asdf.json)"
+      - id: set-plugins
+        run: echo "::set-output name=plugins::$(jq -cM .packages asdf.json)"
   job2:
-    needs: job1
+    needs: set-matrix
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
