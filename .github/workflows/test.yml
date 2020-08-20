@@ -14,4 +14,4 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     steps:
-    - run: echo ${{fromJson(needs.job1.outputs.matrix)}}
+    - run: echo ${{toJson(fromJson(needs.job1.outputs.matrix))}}
