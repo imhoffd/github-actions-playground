@@ -9,7 +9,7 @@ jobs:
     steps:
       - run: echo "::set-output name=plugins::$(jq -cM .packages asdf.json)"
   build:
-    needs: job1
+    needs: set-matrix
     runs-on: ubuntu-latest
     timeout-minutes: 30
     strategy:
