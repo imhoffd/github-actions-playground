@@ -8,6 +8,11 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v2
+      - name: Set the value
+        id: step_one
+        run: echo "::set-output name=FOO::BAR"
+      - name: Use it
+        run: echo ${{ steps.step_one.outputs.FOO }}
       - run: echo "::set-output name=test::testing"
       - run: echo "::set-output name=plugins::$(jq -cM .packages asdf.json)"
   echo:
