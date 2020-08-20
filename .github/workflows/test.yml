@@ -18,7 +18,7 @@ jobs:
         env:
           FILES: ${{ toJson(steps.files.outputs.all) }}
       - id: changed-plugins
-        run: echo "::set-output name=changed-plugins::$(echo $FILES | jq -cM 'map(split(\"/\")) | map(.[0])')"
+        run: echo "::set-output name=changed-plugins::$(echo $FILES | jq -cM 'map(split("/")) | map(.[0])')"
         env:
           FILES: ${{ toJson(steps.files.outputs.all) }}
   job2:
