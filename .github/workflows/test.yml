@@ -14,4 +14,4 @@ jobs:
           format: 'json'
       - run: echo "$FILES"
         env:
-          FILES: ${{ fromJson(steps.files.outputs.all }}
+          FILES: ${{ fromJson(steps.files.outputs.all) }}
