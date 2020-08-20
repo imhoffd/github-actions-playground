@@ -32,3 +32,5 @@ jobs:
       - run: echo "$CHANGED_PLUGINS"
         env:
           CHANGED_PLUGINS: ${{ toJson(needs.job1.outputs['changed-plugins']) }}
+      - run: echo "expensive op"
+        if: ${{ contains(needs.job1.outputs['changed-plugins'], 'asdf') }}
