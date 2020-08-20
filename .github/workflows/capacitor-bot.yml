@@ -1,7 +1,6 @@
 name: Capacitor Bot
 
 on:
-  push:
   issues:
     types: [opened, edited, labeled]
   pull_request:
