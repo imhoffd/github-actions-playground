@@ -6,6 +6,8 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    outputs:
+      changed-plugins: ${{ steps['changed-plugins'].outputs['changed-plugins'] }}
     steps:
       - uses: actions/checkout@v2
       - id: files
@@ -15,3 +17,20 @@ jobs:
       - run: echo "$FILES"
         env:
           FILES: ${{ toJson(steps.files.outputs.all) }}
+      - id: changed-plugins
+        run: echo "::set-output name=changed-plugins::$(echo $FILES | jq -cM 'map(split(\"/\")) | map(.[0])')"
+        env:
+          FILES: ${{ toJson(steps.files.outputs.all) }}
+  job2:
+    needs:
+      - job1
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "$NEEDS_CONTEXT"
+        env:
+          NEEDS_CONTEXT: ${{ toJson(needs) }}
+      - run: echo "$CHANGED_PLUGINS"
+        env:
+          CHANGED_PLUGINS: ${{ toJson(needs.job1.outputs['changed-plugins']) }}
