@@ -19,21 +19,21 @@ jobs:
       - run: echo "::set-output name=test::testing"
       - id: set-plugins
         run: echo "::set-output name=plugins::$(jq -cM .packages asdf.json)"
-  job2:
-    needs: set-matrix
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - run: echo "$NEEDS_CONTEXT"
-        env:
-          NEEDS_CONTEXT: ${{ toJson(needs) }}
-  # build:
+  # job2:
   #   needs: set-matrix
   #   runs-on: ubuntu-latest
   #   timeout-minutes: 30
-  #   strategy:
-  #     matrix:
-  #       plugin: ${{ fromJson(needs['set-matrix'].outputs.plugins) }}
   #   steps:
-  #     - uses: actions/checkout@v2
-  #     - run: echo ${{ matrix.plugin }}
+  #     - run: echo "$NEEDS_CONTEXT"
+  #       env:
+  #         NEEDS_CONTEXT: ${{ toJson(needs) }}
+  build:
+    needs: set-matrix
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      matrix:
+        plugin: ${{ fromJson(needs['set-matrix'].outputs.plugins) }}
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo ${{ matrix.plugin }}
