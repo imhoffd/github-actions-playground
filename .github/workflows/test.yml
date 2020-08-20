@@ -3,8 +3,17 @@ name: Blah
 on: push
 
 jobs:
-  bot:
+  set-matrix:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - run: echo ${{ github.ref }}
+      - run: echo "::set-output name=plugins::$(jq -cM .packages asdf.json)"
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      matrix:
+        plugin: ${{ fromJson(needs.job1.outputs.plugins) }}
+    steps:
+      - run: echo ${{ matrix.plugin }}
