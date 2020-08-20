@@ -3,7 +3,7 @@ name: Blah
 on: push
 
 jobs:
-  set-matrix:
+  job1:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -15,12 +15,13 @@ jobs:
         run: echo ${{ steps.step_one.outputs.FOO }}
       - run: echo "::set-output name=test::testing"
       - run: echo "::set-output name=plugins::$(jq -cM .packages asdf.json)"
-  echo:
-    needs: set-matrix
+  job2:
+    needs: job1
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - run: echo ${{ toJson(needs['set-matrix'].outputs) }}
+      - run: echo ${{ toJson(needs.job1.outputs) }}
+      - run: echo ${{ needs.job1.outputs.FOO }}
   # build:
   #   needs: set-matrix
   #   runs-on: ubuntu-latest
