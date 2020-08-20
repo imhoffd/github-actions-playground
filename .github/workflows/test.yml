@@ -3,37 +3,15 @@ name: Blah
 on: push
 
 jobs:
-  set-matrix:
+  job1:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    outputs:
-      FOO: ${{ steps.step_one.outputs.FOO }}
-      plugins: ${{ steps['set-plugins'].outputs.plugins }}
     steps:
       - uses: actions/checkout@v2
-      - name: Set the value
-        id: step_one
-        run: echo "::set-output name=FOO::BAR"
-      - name: Use it
-        run: echo ${{ steps.step_one.outputs.FOO }}
-      - run: echo "::set-output name=test::testing"
-      - id: set-plugins
-        run: echo "::set-output name=plugins::$(jq -cM .packages asdf.json)"
-  # job2:
-  #   needs: set-matrix
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 30
-  #   steps:
-  #     - run: echo "$NEEDS_CONTEXT"
-  #       env:
-  #         NEEDS_CONTEXT: ${{ toJson(needs) }}
-  build:
-    needs: set-matrix
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    strategy:
-      matrix:
-        plugin: ${{ fromJson(needs['set-matrix'].outputs.plugins) }}
-    steps:
-      - uses: actions/checkout@v2
-      - run: echo ${{ matrix.plugin }}
+      - id: files
+        uses: jitterbit/get-changed-files@v1
+        with:
+          format: 'json'
+      - run: echo "$FILES"
+        env:
+          FILES: ${{ fromJson(steps.files.outputs.all }}
