@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - run: echo ${{ needs['set-matrix'].outputs.test }}
+      - run: echo ${{ toJson(needs['set-matrix'].outputs) }}
   # build:
   #   needs: set-matrix
   #   runs-on: ubuntu-latest
