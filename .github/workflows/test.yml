@@ -15,4 +15,4 @@ jobs:
           format: 'json'
       - run: echo $DATA
         env:
-          DATA: ${{ steps.files.output.all }}
+          DATA: ${{ toJson(steps.files.output.all) }}
