@@ -9,5 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: dwieeb/get-changed-files@5a87587
+        id: files
+        if: ${{ github.event.before != '0000000000000000000000000000000000000000' }}
         with:
           format: 'json'
+      - run: echo $DATA
+        env:
+          DATA: ${{ steps.files.output.all }}
