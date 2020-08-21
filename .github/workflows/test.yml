@@ -15,4 +15,6 @@ jobs:
           format: 'json'
       - run: echo $DATA
         env:
-          DATA: ${{ toJson(steps.files.outputs.all) }}
+          DATA: ${{ steps.files.outputs.all }}
+      - run: echo "Do the thing"
+        if: ${{ steps.files.outputs.all }}
