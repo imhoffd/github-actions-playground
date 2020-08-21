@@ -13,7 +13,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
       - uses: dwieeb/get-changed-files@5a87587
         id: files
-        if: ${{ github.event.before != '0000000000000000000000000000000000000000' }}
+        if: ${{ github.event_name != 'push' || github.event.before != '0000000000000000000000000000000000000000' }}
         with:
           format: 'json'
       - run: echo $DATA
