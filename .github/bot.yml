@@ -36,6 +36,18 @@ tasks:
         types: [opened]
     config:
       comment: 'hello world'
+  - name: add-comment
+    on:
+      issues:
+        types: [labeled]
+    condition: 'payload'
+    config:
+      comment: >
+        Hello world!
+
+        This is a comment.
+
+        Thanks, you're great 👍
   - name: add-comment-for-label
     on:
       issues:
