@@ -5,6 +5,13 @@ tasks:
         types: [opened]
     config:
       label: triage
+  - name: add-label
+    on:
+      issue_comment:
+        types: [created]
+    condition: 'payload'
+    config:
+      label: testing
   - name: remove-label
     on:
       issue_comment:

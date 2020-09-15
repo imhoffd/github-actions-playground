@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ionic-team/bot@19007f0
+      - uses: ionic-team/bot@e419366
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
         env:
