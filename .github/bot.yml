@@ -40,7 +40,7 @@ tasks:
     on:
       issues:
         types: [labeled]
-    condition: 'payload'
+    condition: 'payload.label.name == "help wanted"'
     config:
       comment: >
         Hello world!
