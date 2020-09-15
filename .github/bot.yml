@@ -42,7 +42,7 @@ tasks:
         types: [labeled]
     condition: 'payload.label.name == "help wanted"'
     config:
-      comment: >
+      comment: |
         Hello world!
 
         This is a comment.
