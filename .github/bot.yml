@@ -9,7 +9,7 @@ tasks:
     on:
       issue_comment:
         types: [created]
-    condition: 'payload'
+    condition: 'payload.issue.number == 36'
     config:
       label: testing
   - name: remove-label
