@@ -33,7 +33,7 @@ tasks:
       base: master
       commit-message: 'chore(readme): add new contributor'
       exclude-patterns:
-        - 'Ionitron'
+        - '^Ionitron$'
         - '\\[bot\\]$'
   - name: add-comment
     on:
