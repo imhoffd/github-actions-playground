@@ -28,9 +28,9 @@ tasks:
   - name: add-contributors
     on:
       push:
-        branches: [main]
+        branches: [master]
     config:
-      base: main
+      base: master
       commit-message: 'chore(readme): add new contributor'
       exclude-patterns:
         - 'Ionitron'
