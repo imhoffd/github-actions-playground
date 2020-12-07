@@ -13,4 +13,5 @@ jobs:
           access_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v2
       - run: gradle --version
+      - run: echo "hi"
       - run: which gradle
