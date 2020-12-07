@@ -1,6 +1,6 @@
 name: Blah
 
-on: [push, pull_request]
+on: [push, pull_request, pull_request_target]
 
 jobs:
   job1:
@@ -10,7 +10,7 @@ jobs:
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.6.0
         with:
-          access_token: ${{ github.token }}
+          access_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v2
       - run: gradle --version
       - run: which gradle
