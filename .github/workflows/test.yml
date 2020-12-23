@@ -13,5 +13,6 @@ jobs:
           access_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v2
       - run: echo ${{ github.ref }}
+      - run: exit 1
       - run: gradle --version
       - run: which gradle
