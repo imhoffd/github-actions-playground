@@ -12,7 +12,7 @@ jobs:
         env:
           PAYLOAD: ${{ toJson(github.event) }}
       - id: files
-        uses: dwieeb/get-changed-files@a6c763a
+        uses: dwieeb/get-changed-files@59c7e51
         with:
           format: 'json'
       - run: echo ${{ steps.files.outputs.all }}
