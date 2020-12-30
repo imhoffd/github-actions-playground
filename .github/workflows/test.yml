@@ -12,5 +12,7 @@ jobs:
         uses: dwieeb/get-changed-files@main
         with:
           format: 'json'
-      - run: echo ${{ toJson(github.event) }}
+      - run: echo $PAYLOAD
+        env:
+          PAYLOAD: ${{ toJson(github.event) }}
       - run: echo ${{ steps.files.outputs.all }}
