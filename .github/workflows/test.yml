@@ -7,12 +7,10 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 30
     steps:
-      - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.6.0
-        with:
-          access_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v2
-      - run: echo ${{ github.ref }}
-      - run: exit 1
-      - run: gradle --version
-      - run: which gradle
+      - id: files
+        uses: dwieeb/get-changed-files@main
+        if: github.event_name != 'push' || github.event.before != '0000000000000000000000000000000000000000'
+        with:
+          format: 'json'
+      - run: echo ${{ steps.files.outputs.all }}
